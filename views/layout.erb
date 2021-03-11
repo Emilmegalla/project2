@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  
+  <% if logged_in? %>
+    Welcome <%= current_user()['email'] %> <!-- calling the function to return the hash -->
+
+    <form action="/session" method="post"> <!--  it's session not sessions-->
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+    </form>
+ <% else %>
+    <a href="/login">login</a>
+  <% end %>
+
+  <%= yield %>
+
+  </body>
+  </html>
+    
+  

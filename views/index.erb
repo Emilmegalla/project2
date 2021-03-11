@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All type of pics samples</h1>
+
+ <a href="/share">share your photo</a> 
+
+<% pics.each do |pic| %>
+
+  <a href="/pics/<%= pic['id']%>?id=<%= pic['id'] %>">
+    <p>
+      <%= pic['title'] %>
+    </p>
+  </a>
+ <img src="<%= pic['image_url'] %>" alt="">
+
+<% end %>
+
+  
+</body>
+</html>
