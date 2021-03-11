@@ -1,10 +1,12 @@
 # Dependencies
 
+
+
 require 'sinatra'
 # require 'sinatra/reloader' # To reload the seriver without disconnect
 require 'sinatra/reloader' if development?
 require 'pg'  # For PSQL
-require 'pry' # Pry library
+require 'pry' if development?
 require 'bcrypt' # Bcrypt function
 
 #This for logging in (sinatra)
@@ -19,16 +21,16 @@ def logged_in?()
 
   # Connect to the database and request information about the current logged in user
   def current_user
-    db = PG.connect(dbname: 'picgallary')
-    sql = "SELECT * FROM users WHERE id = #{session[:user_id]};"
-  
-    results = db.exec(sql)
+
+    sql = "SELECT * FROM users WHERE id = $1;"
+    
+    results = run_sql(sql, [session[:user_id]]) 
     return results.first
   end
 
 # This function will connect and close the database in all sections 
   def run_sql(sql, arr = []) # array is for security feature
-    db = PG.connect(dbname: 'picgallary')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'picgallary'})
     results = db.exec_params(sql, arr)
     db.close
     return results
