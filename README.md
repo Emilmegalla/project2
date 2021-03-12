@@ -6,4 +6,4 @@ Things to be added later to the project
 
 Link to the website
 
-https://agile-temple-36716.herokuapp.com/pics/1?id=1
+https://agile-temple-36716.herokuapp.com/
