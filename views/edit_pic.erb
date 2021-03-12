@@ -1,1 +1,17 @@
-<h1>Heeey</h1>
+<h1>Something not right ? please advise</h1>
+
+<form action="pics/<% pics['id'] %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="">title</label>
+  <input type="text" name="title" value="<%= pics['title'] %>">
+  <label for="">image url</label>
+  <input type="text" name="image_url" value="<%= pics['image_url'] %>">  
+  <label for="">Camera setting</label>
+  <input type="text" name="description" value="<%= pics['description'] %>">
+  <label for="">location</label>
+  <input type="text" name="location" value="<%= pics['location'] %>">
+  <button>update</button>
+</form>
+
+
+

@@ -8,16 +8,21 @@
 <body>
     <h1>All type of pics samples</h1>
 
- <a href="/share">share your photo</a> 
+ <a href="/share"><h2>share your photo</h2></a> 
 
 <% pics.each do |pic| %>
 
-  <a href="/pics/<%= pic['id']%>?id=<%= pic['id'] %>">
-    <p>
-      <%= pic['title'] %>
-    </p>
-  </a>
- <img src="<%= pic['image_url'] %>" alt="">
+  
+        <a href="/pics/<%= pic['id']%>?id=<%= pic['id'] %>">
+            <p>
+            <%= pic['title'] %>
+            </p>
+
+            <img src="<%= pic['image_url'] %>" alt="">
+            
+        </a>
+       
+ 
 
 <% end %>
 

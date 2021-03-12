@@ -1,14 +1,20 @@
+<p><%= pic['title'] %></p>
 <img src="<%= pic['image_url'] %>" alt="">
 
 <%# if logged_in? %> <!-- This is one way to hide the delete button if the user is not logged in -->
 
     <form action="/pics/<%= pic['id'] %>" method="post">
-
+        <p>
+            <%= pic['description'] %>
+        </p>
+        <p>
+        <a href="<%= pic['location'] %>" target="_blank">Location</a>
+        </p>
         <input type="hidden" name="_method" value="delete">
 
         <button>Delete</button>
 
-        <%# <p>This is hight shutter speeh phtotography</p> %>
+        
     </form>
 
 <%# end %> <!-- Commented out for trial-->

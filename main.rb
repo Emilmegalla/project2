@@ -84,15 +84,16 @@ get '/share' do
   
   end
   
-  # delete '/pics/:id' do
+  delete '/pics/:id' do
 
-  #   # tell it to remove a specific record
-  #   sql = "DELETE FROM pics WHERE id = #{params[:id]};"
-  #   results = db.exec(sql)
+    # tell it to remove a specific record
+    run_sql("DELETE FROM pics WHERE id = $1;", [params[:id]])
+     
+
   
-  #   # redirect to another route
-  #   redirect '/'
-  # end
+    # redirect to another route
+    redirect '/'
+  end
   
   
   #  '/edit_post'

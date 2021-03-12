@@ -10,7 +10,7 @@
 
   
   <% if logged_in? %>
-    Welcome <%= current_user()['email'] %> <!-- calling the function to return the hash -->
+   <h3>Welcome <%= current_user()['email'] %></h3><!-- calling the function to return the hash -->
 
     <form action="/session" method="post"> <!--  it's session not sessions-->
         <input type="hidden" name="_method" value="delete">
